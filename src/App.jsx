@@ -15,6 +15,10 @@ import NotFound from "./pages/NotFound";
 import BookLayout from "./BookLayout";
 import Contact from "./pages/Contact";
 import About from "./pages/About";
+import Form from "./component/Form";
+import FormYup from "./component/FormYup";
+import FormFormikYup from "./component/FormFormikYup";
+import FormReactHookForm from "./component/FormReactHookForm";
 
 const App = () => {
   //defining route using javaScript
@@ -48,6 +52,11 @@ const App = () => {
             removes the page you're currently on from the history, so when you click page you don't go back to that page. i.e login page, when the user is login you properly don't want to bring the user page to the login page when they go backward.
             */}
           </li>
+          <Link to="/form">Form</Link>
+          <Link to="/form-yup">FormYup</Link>
+          <Link to="/form-formik-yup">FormFormikYup</Link>
+          <Link to="/react-hook-form">ReactHookForm</Link>
+
           <li>
             <NavLink
               state="Hi, from state"
@@ -77,6 +86,10 @@ const App = () => {
           <Route path="newbook" element={<NewBook />} />
         </Route>
         <Route path="/book" element={<BookList />} />
+        <Route path="/form" element={<Form />} />
+        <Route path="/form-yup" element={<FormYup />} />
+        <Route path="/form-formik-yup" element={<FormFormikYup />} />
+        <Route path="/react-hook-form" element={<FormReactHookForm />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </>
