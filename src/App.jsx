@@ -19,6 +19,8 @@ import Form from "./component/Form";
 import FormYup from "./component/FormYup";
 import FormFormikYup from "./component/FormFormikYup";
 import FormReactHookForm from "./component/FormReactHookForm";
+import Counter from "./redux/features/counter/Counter";
+import PostsList from "./redux/features/post/PostsList";
 
 const App = () => {
   //defining route using javaScript
@@ -40,9 +42,9 @@ const App = () => {
   };
   return (
     <>
-      <nav className="bg-slate-200 py-4">
+      <nav className="bg-slate-200 py-4 flex-wrap">
         {/* {element} */}
-        <ul className="flex gap-5">
+        <ul className="flex gap-5   flex-wrap ">
           <li>
             <Link to="/">Home</Link>
             {/* <Link to="/" reloadDocument>Home</Link> 
@@ -53,9 +55,11 @@ const App = () => {
             */}
           </li>
           <Link to="/form">Form</Link>
+          <Link to="/counter">Redux-Counter</Link>
           <Link to="/form-yup">FormYup</Link>
           <Link to="/form-formik-yup">FormFormikYup</Link>
           <Link to="/react-hook-form">ReactHookForm</Link>
+          <Link to="/post">Redux-Posts</Link>
 
           <li>
             <NavLink
@@ -90,6 +94,8 @@ const App = () => {
         <Route path="/form-yup" element={<FormYup />} />
         <Route path="/form-formik-yup" element={<FormFormikYup />} />
         <Route path="/react-hook-form" element={<FormReactHookForm />} />
+        <Route path="/counter" element={<Counter />} />
+        <Route path="/post" element={<PostsList />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </>
