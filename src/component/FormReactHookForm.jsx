@@ -5,7 +5,6 @@ import { z } from "zod";
 import errorMap from "zod/locales/en.js";
 
 const FormReactHookForm = () => {
-  //zod schema
   const schema = z.object({
     firstName: z.string().trim().min(2, "First name is required"),
     lastName: z.string().min(2),
@@ -31,14 +30,6 @@ const FormReactHookForm = () => {
 
   const onSubmit = (data) => {
     console.log(data);
-    // try {
-    //     await new Promise((resolve)=>setTimeout(resolve, 1000));
-    //     throw new Error();
-    // } catch (error) {
-    //     setError('email', {
-    //         message: "This email is already taken"
-    //     })
-    // }
   };
   return (
     <div className="flex justify-center  my-10">

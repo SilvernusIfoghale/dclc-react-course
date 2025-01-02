@@ -19,7 +19,7 @@ const AddPostForm = () => {
     <>
       <h1 className="ml-3 text-4xl my-3">AddPostForm</h1>
 
-      <form className="p-2" onSubmit={handleSubmit}>
+      <form className="p-2 max-w-80" onSubmit={handleSubmit}>
         <div className=" ml-3 ">
           <label htmlFor="post-title">Post Title:</label>
           <input
