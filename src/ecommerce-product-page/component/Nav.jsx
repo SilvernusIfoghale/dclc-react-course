@@ -7,15 +7,14 @@ const Nav = () => {
   const [toggle, setToggle] = useState(false);
   const handleToggle = () => {
     setToggle(!toggle);
-    console.log(toggle);
   };
   return (
     <>
-      <nav className="flex h-[80px] px-5 items-center border-b-2 border-[#e4e5e7] mb-[80px] ">
+      <nav className="flex h-[80px] px-5 items-center border-b-2 border-[#e4e5e7] mb-[30px] ">
         <div className=" flex items-center justify-between w-full">
           <div className="flex items-center ">
             {/* left-section- logo & link  */}
-            <div className="mt-[4px] ml-[30px] mr-[10px] cursor-pointer md:hidden hover:scale-110 duration-500 ease-in-out transition-all">
+            <div className="mt-[4px]  mr-[20px] cursor-pointer md:hidden hover:scale-110 duration-500 ease-in-out transition-all">
               <img
                 src={pageImg.menuImg}
                 onClick={handleToggle}
@@ -32,10 +31,16 @@ const Nav = () => {
             </div>
             <div>
               <ul
-                className={`md:flex md:gap-4 md:relative md:pt-0 md:p-0 md:text-gray-500  absolute left-0 top-0 bg-white p-10 pt-16 font-semibold leading-loose md:leading-none border-r-2 h-full md:h-none md:border-r-0 {${toggle} && "bg-black"}  `}
+                className={`md:flex md:gap-4 md:relative md:pt-0 md:p-0 md:text-gray-500  absolute left-0 top-0 bg-white p-10 pt-16 font-semibold leading-loose md:leading-none border-r-2 h-full md:h-none md:border-r-0   ${
+                  toggle ? "visible" : "hidden"
+                }`}
               >
-                <li className="md:hidden absolute top-5">
-                  <img src={pageImg.closeImg} alt="close-btn" />
+                <li className="md:hidden absolute top-5 cursor-pointer hover:scale-110 duration-500 ease-in-out transition-all">
+                  <img
+                    src={pageImg.closeImg}
+                    alt="close-btn"
+                    onClick={handleToggle}
+                  />
                 </li>
                 <li>
                   <Link className="hover:border-b-2 hover:border-[#ff7d1a] hover:text-gray-700 md:pb-7">
@@ -67,7 +72,7 @@ const Nav = () => {
           </div>
           <div className="flex items-center gap-5">
             {/*  cart and profile  */}
-            <div className="">
+            <div>
               <img
                 src={pageImg.cartImg}
                 alt="cart-icon"
