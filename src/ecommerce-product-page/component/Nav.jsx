@@ -1,16 +1,18 @@
 import React, { useState } from "react";
-import { pageImg } from "../images/db";
+import { pageImg } from "../imageDb/db";
 import { Link } from "react-router";
 import Cart from "./Cart";
 
 const Nav = () => {
   const [toggle, setToggle] = useState(false);
+  const [cartInfo, setCartInfo] = useState(false);
+
   const handleToggle = () => {
     setToggle(!toggle);
   };
   return (
     <>
-      <nav className="flex h-[80px] px-5 items-center border-b-2 border-[#e4e5e7] mb-[30px] ">
+      <nav className="flex h-[80px] px-5 items-center border-b-2 border-[#e4e5e7] sm:mb-[30px] ">
         <div className=" flex items-center justify-between w-full">
           <div className="flex items-center ">
             {/* left-section- logo & link  */}
@@ -31,7 +33,7 @@ const Nav = () => {
             </div>
             <div>
               <ul
-                className={`md:flex md:gap-4 md:relative md:pt-0 md:p-0 md:text-gray-500  absolute left-0 top-0 bg-white p-10 pt-16 font-semibold leading-loose md:leading-none border-r-2 h-full md:h-none md:border-r-0   ${
+                className={`z-10 md:flex md:gap-4 md:relative md:pt-0 md:p-0 md:text-gray-500  absolute left-0 top-0 bg-white p-10 pt-16 font-semibold leading-loose md:leading-none border-r-2 h-full md:h-none md:border-r-0   ${
                   toggle ? "visible" : "hidden"
                 }`}
               >
@@ -73,10 +75,12 @@ const Nav = () => {
           <div className="flex items-center gap-5">
             {/*  cart and profile  */}
             <div>
+              <div className="cart-count"></div>
               <img
                 src={pageImg.cartImg}
                 alt="cart-icon"
                 className="hover:cursor-pointer"
+                onClick={() => setCartInfo(!cartInfo)}
               />
             </div>
 
@@ -91,9 +95,7 @@ const Nav = () => {
           </div>
         </div>
       </nav>
-
-      {/* cart  */}
-      {/* <Cart /> */}
+      {cartInfo && <Cart />}
     </>
   );
 };
