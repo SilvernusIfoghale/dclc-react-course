@@ -8,14 +8,12 @@ import { TotalContext } from "../context/TotalContext";
 const Nav = () => {
   const [toggle, setToggle] = useState(false);
   const [cartInfo, setCartInfo] = useState(false);
-  const { count } = useContext(CountContext);
   const { total } = useContext(TotalContext);
   const [countValue, setCountValue] = useState();
 
   useEffect(() => {
     let value = total / 125;
     setCountValue(value);
-    console.log(total);
   }, [total]);
 
   const handleToggle = () => {
@@ -45,8 +43,10 @@ const Nav = () => {
             </div>
             <div>
               <ul
-                className={`z-10 md:flex md:gap-4 md:relative md:pt-0 md:p-0 md:text-gray-500  absolute left-0 top-0 bg-white p-10 pt-16 font-semibold leading-loose md:leading-none border-r-2 h-full md:h-none md:border-r-0   ${
-                  toggle ? "visible" : "hidden"
+                className={`z-10 md:flex md:gap-4 md:relative md:pt-0 md:p-0 md:text-gray-500  absolute left-0 top-0 bg-white p-10 pt-16 font-semibold leading-loose md:leading-none border-r-2 min-h-full md:h-none md:border-r-0   ${
+                  toggle
+                    ? "visible min-h-[980px] sm:min-h-full"
+                    : "hidden min-h-0"
                 }`}
               >
                 <li className="md:hidden absolute top-5 cursor-pointer hover:scale-110 duration-500 ease-in-out transition-all">
@@ -115,7 +115,11 @@ const Nav = () => {
           </div>
         </div>
       </nav>
-      {cartInfo && <Cart />}
+      {toggle && (
+        <div className="bg-black opacity-70 md:hidden absolute top-0 bottom-0 right-0 w-[88vw] min-h-[980px] sm:min-h-full  z-[2]"></div>
+      )}
+
+      {cartInfo && <Cart total={total} countValue={countValue} />}
     </>
   );
 };
