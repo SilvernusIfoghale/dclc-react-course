@@ -1,14 +1,24 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { pageImg } from "../imageDb/db";
+import Nav from "./Nav";
+import { CountContext } from "../context/CountContext";
+import { TotalContext } from "../context/TotalContext";
 
 const ProductDetail = () => {
-  const [count, setCount] = useState(0);
+  const { total, setTotal } = useContext(TotalContext);
+  const { count, setCount } = useContext(CountContext);
   const handleIncrement = () => {
     setCount(count + 1);
   };
   const handleDecrement = () => {
     if (count != 0) {
       setCount(count - 1);
+    }
+  };
+  const handleClick = () => {
+    if (count != 0) {
+      let newTotal = (125 * count).toFixed(2);
+      setTotal(newTotal);
     }
   };
   return (
@@ -49,7 +59,10 @@ const ProductDetail = () => {
               <img src={pageImg.plus} alt="" />
             </button>
           </div>
-          <div className="flex justify-center rounded-lg items-center bg-[#ff7d1a] sm:w-[190px] cursor-pointer hover:bg-[#ed9654] w-full">
+          <div
+            className="flex justify-center rounded-lg items-center bg-[#ff7d1a] sm:w-[190px] cursor-pointer hover:bg-[#ed9654] w-full"
+            onClick={handleClick}
+          >
             <button className="flex items-center gap-3 py-3">
               <img src={pageImg.cartImg} alt="" className="w-[15px] mr-1" />
               <p className="font-bold text-xs">Add to Cart</p>

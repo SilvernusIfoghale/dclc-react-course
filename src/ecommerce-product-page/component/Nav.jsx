@@ -1,15 +1,27 @@
-import React, { useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { pageImg } from "../imageDb/db";
 import { Link } from "react-router";
 import Cart from "./Cart";
+import { CountContext } from "../context/CountContext";
+import { TotalContext } from "../context/TotalContext";
 
 const Nav = () => {
   const [toggle, setToggle] = useState(false);
   const [cartInfo, setCartInfo] = useState(false);
+  const { count } = useContext(CountContext);
+  const { total } = useContext(TotalContext);
+  const [countValue, setCountValue] = useState();
+
+  useEffect(() => {
+    let value = total / 125;
+    setCountValue(value);
+    console.log(total);
+  }, [total]);
 
   const handleToggle = () => {
     setToggle(!toggle);
   };
+
   return (
     <>
       <nav className="flex h-[80px] px-5 items-center border-b-2 border-[#e4e5e7] sm:mb-[30px] ">
@@ -72,10 +84,18 @@ const Nav = () => {
               </ul>
             </div>
           </div>
-          <div className="flex items-center gap-5">
+          <div className="flex items-center gap-5 relative">
             {/*  cart and profile  */}
-            <div>
-              <div className="cart-count"></div>
+            <div className="">
+              {countValue > 0 && (
+                <div
+                  className={`${
+                    total > 124 ? "visible" : "hidden"
+                  } flex absolute top-1 left-2 items-center justify-center font-bold text-white w-6 h-[0.9rem] rounded-md bg-[#ff7d1a] text-xs  `}
+                >
+                  {countValue}
+                </div>
+              )}
               <img
                 src={pageImg.cartImg}
                 alt="cart-icon"
