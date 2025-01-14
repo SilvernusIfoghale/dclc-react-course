@@ -18,21 +18,18 @@ const Product = () => {
 
   //next function
   const handleNext = (index) => {
-    let id = 57;
-    let char = index[id] - 1;
-    // console.log(index.charAt(id));
+    let charIndex = 57;
+    let char = index[charIndex] - 1;
     if (char + 1 == 4) {
-      console.log(id);
-      console.log(thumbnails[0]?.id);
-      setImgToggle(thumbnails[0]?.id);
+      setImgToggle(thumbnails[0].id);
     } else {
-      setImgToggle(thumbnails[char + 1]?.id);
+      setImgToggle(thumbnails[char + 1].id);
     }
   };
   //nextFloat function
   const handleNextFloat = (index) => {
-    let id = 57;
-    let char = index[id] - 1;
+    let charIndex = 57;
+    let char = index[charIndex] - 1;
     // console.log(index.charAt(id));
     if (char + 1 == 4) {
       setImgToggleFloat(thumbnails[0].id);
@@ -43,8 +40,8 @@ const Product = () => {
 
   //previous function
   const handlePrevious = (index) => {
-    let id = 57;
-    let char = index[id] - 1;
+    let charIndex = 57;
+    let char = index[charIndex] - 1;
     if (char == 0) {
       setImgToggle(thumbnails[3].id);
     } else {
@@ -53,8 +50,8 @@ const Product = () => {
   };
   //previousFloat function
   const handlePreviousFloat = (index) => {
-    let id = 57;
-    let char = index[id] - 1;
+    let charIndex = 57;
+    let char = index[charIndex] - 1;
     if (char == 0) {
       setImgToggleFloat(thumbnails[3].id);
     } else {
