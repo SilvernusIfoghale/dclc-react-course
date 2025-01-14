@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useLocation } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import Card from "../component/Card";
 import FetchUsers from "../component/FetchUsers";
 
@@ -7,8 +7,44 @@ const Home = () => {
   const location = useLocation();
   // console.log(location);
   const [count, setCount] = useState(0);
+  const navLinkStyles = ({ isActive }) => {
+    return {
+      fontWeight: isActive ? "bold" : "normal",
+      color: isActive ? "black" : "",
+      textDecoration: "none",
+    };
+  };
   return (
     <>
+      <nav className="bg-slate-200 py-4 flex-wrap">
+        <ul className="flex gap-5   flex-wrap ">
+          <Link to="/product">Product</Link>
+          <li></li>
+          <Link to="/form">Form</Link>
+          <Link to="/counter">Redux-Counter</Link>
+          <Link to="/form-yup">FormYup</Link>
+          <Link to="/form-formik-yup">FormFormikYup</Link>
+          <Link to="/react-hook-form">ReactHookForm</Link>
+          <Link to="/post">Redux-Posts</Link>
+
+          <li>
+            <NavLink
+              state="Hi, from state"
+              to="/book"
+              style={({ isActive }) => {
+                return isActive ? { fontWeight: "bold" } : {};
+              }}
+            >
+              Book List
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/books" style={navLinkStyles}>
+              Books
+            </NavLink>
+          </li>
+        </ul>
+      </nav>
       <div className="m-5 border-2 p-5 text-center w-96">
         <FetchUsers />
       </div>
