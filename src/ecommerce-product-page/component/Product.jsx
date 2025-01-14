@@ -30,7 +30,10 @@ const Product = () => {
   const handleNextFloat = (index) => {
     let charIndex = 57;
     let char = index[charIndex] - 1;
-    // console.log(index.charAt(id));
+    console.log(thumbnails[0].id);
+    console.log("next");
+    console.log(thumbnails[0]?.id);
+    console.log(thumbnails[char]);
     if (char + 1 == 4) {
       setImgToggleFloat(thumbnails[0].id);
     } else {
