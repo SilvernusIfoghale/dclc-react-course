@@ -18,7 +18,7 @@ const Product = () => {
 
   //next function
   const handleNext = (index) => {
-    let charIndex = 57;
+    let charIndex = 22;
     let char = index[charIndex] - 1;
     if (char + 1 == 4) {
       setImgToggle(thumbnails[0].id);
