@@ -21,6 +21,7 @@ import FormFormikYup from "./component/FormFormikYup";
 import FormReactHookForm from "./component/FormReactHookForm";
 import Counter from "./redux/features/counter/Counter";
 import PostsList from "./redux/features/post/PostsList";
+import Index from "./ecommerce-product-page/Index";
 
 const App = () => {
   //defining route using javaScript
@@ -42,18 +43,20 @@ const App = () => {
   };
   return (
     <>
-      <nav className="bg-slate-200 py-4 flex-wrap">
-        {/* {element} */}
-        <ul className="flex gap-5   flex-wrap ">
-          <li>
-            <Link to="/">Home</Link>
-            {/* <Link to="/" reloadDocument>Home</Link> 
+      {/* <li> */}
+      {/* <Link to="/" reloadDocument>Home</Link> 
             reloads the entire page when clicked
             */}
-            {/* <Link to="/" replace>Home</Link>
+      {/* <Link to="/" replace>Home</Link>
             removes the page you're currently on from the history, so when you click page you don't go back to that page. i.e login page, when the user is login you properly don't want to bring the user page to the login page when they go backward.
             */}
-          </li>
+      {/* <NavLink end to="/books" style={navLinkStyles}> 
+            the 'end' stops the parent route from being active once the child component is clicked*/}
+      {/* </li> */}
+      {/* <nav className="bg-slate-200 py-4 flex-wrap">
+        <ul className="flex gap-5   flex-wrap ">
+          <Link to="/product">Product</Link>
+          <li></li>
           <Link to="/form">Form</Link>
           <Link to="/counter">Redux-Counter</Link>
           <Link to="/form-yup">FormYup</Link>
@@ -71,19 +74,17 @@ const App = () => {
             >
               Book List
             </NavLink>
-            {/* <Link to="/book">Book List</Link> */}
           </li>
           <li>
-            {/* <NavLink end to="/books" style={navLinkStyles}> 
-            the 'end' stops the parent route from being active once the child component is clicked*/}
             <NavLink to="/books" style={navLinkStyles}>
               Books
             </NavLink>
           </li>
         </ul>
-      </nav>
+      </nav> */}
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/product" element={<Index />} />
         <Route path="/books" element={<BookLayout />}>
           <Route index element={<Books />} />
           <Route path=":id" element={<Books />} />
