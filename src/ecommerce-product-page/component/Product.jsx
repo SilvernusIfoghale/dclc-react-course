@@ -22,9 +22,11 @@ const Product = () => {
     let char = index[id] - 1;
     // console.log(index.charAt(id));
     if (char + 1 == 4) {
-      setImgToggle(thumbnails[0].id);
+      console.log(id);
+      console.log(thumbnails[0]?.id);
+      setImgToggle(thumbnails[0]?.id);
     } else {
-      setImgToggle(thumbnails[char + 1].id);
+      setImgToggle(thumbnails[char + 1]?.id);
     }
   };
   //nextFloat function
