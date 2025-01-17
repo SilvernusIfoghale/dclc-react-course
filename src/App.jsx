@@ -22,6 +22,7 @@ import FormReactHookForm from "./component/FormReactHookForm";
 import Counter from "./redux/features/counter/Counter";
 import PostsList from "./redux/features/post/PostsList";
 import Index from "./ecommerce-product-page/Index";
+import Calculator from "./component/calculator-app/Calculator";
 
 const App = () => {
   //defining route using javaScript
@@ -56,6 +57,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/product" element={<Index />} />
+        <Route path="/calculator" element={<Calculator />} />
         <Route path="/books" element={<BookLayout />}>
           <Route index element={<Books />} />
           <Route path=":id" element={<Books />} />
