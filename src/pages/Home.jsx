@@ -19,6 +19,7 @@ const Home = () => {
       <nav className="bg-slate-200 py-4 flex-wrap">
         <ul className="flex gap-5   flex-wrap ">
           <Link to="/product">Product</Link>
+          <Link to="/calculator">Calculator</Link>
           <li></li>
           <Link to="/form">Form</Link>
           <Link to="/counter">Redux-Counter</Link>
