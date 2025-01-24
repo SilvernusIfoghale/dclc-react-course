@@ -2,11 +2,11 @@ import { nanoid } from "nanoid";
 import { useState } from "react";
 import NewComment from "./NewComment";
 import Reply from "./Reply";
-import deleteIcon from "./../images/icon-delete.svg";
-import editIcon from "./../images/icon-edit.svg";
-import minusIcon from "./../images/icon-minus.svg";
-import plusIcon from "./../images/icon-plus.svg";
-import replyIcon from "./../images/icon-reply.svg";
+import deleteIcon from "./../../../public/images/icon-delete.svg";
+import editIcon from "./../../../public/images/icon-edit.svg";
+import minusIcon from "./../../../public/images/icon-minus.svg";
+import plusIcon from "./../../../public/images/icon-plus.svg";
+import replyIcon from "./../../../public/images/icon-reply.svg";
 
 export default function Comment(props) {
   const [score, setScore] = useState(props.score);
