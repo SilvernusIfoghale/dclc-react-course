@@ -9,7 +9,6 @@ function Comments({ currentUser }) {
   const allData = data;
   const [backendComments, setBackendComments] = useState(allData.comments);
   const [activeComment, setActiveComment] = useState(null);
-  // console.log(backendComments);
 
   const createComment = async (text) => {
     return {

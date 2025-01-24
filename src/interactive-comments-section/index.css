@@ -130,13 +130,18 @@ button {
   display: flex;
   margin-top: 1em;
   font-weight: 500;
-  height: 90px;
+  height: 45px;
+  width: 120px;
   border-radius: 10px;
+  overflow: hidden;
   background-color: var(--verylightgray);
 }
+
 .comment-votes button {
   background-color: transparent;
   cursor: pointer;
+  border-radius: 0;
+  height: 100%;
 }
 
 .comment-votes button:hover {
@@ -161,26 +166,6 @@ button {
   align-items: center;
   justify-content: center;
 }
-
-/* .plus-btn,
-.minus-btn {
-  background-color: var(--verylightgray);
-  display: flex;
-  align-items: center;
-  padding: 0 0.5rem;
-  border-radius: 0;
-}
-
-.plus-btn {
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
-}
- */
-
-/* .minus-btn {
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
-} */
 
 .plus-btn:hover,
 .minus-btn:hover {
@@ -322,12 +307,17 @@ button {
   font-size: 11px;
   text-align: center;
   width: 100%;
-  bottom: 10px;
+  /* bottom: 10px; */
 }
 .attribution a {
   color: hsl(228, 45%, 44%);
 }
-
+.reply-btn,
+.delete-btn,
+.edit-btn {
+  display: flex;
+  align-items: center;
+}
 @media screen and (min-width: 800px) {
   body {
     display: flex;
@@ -338,6 +328,12 @@ button {
     max-width: 800px;
     margin-top: 5%;
   }
+  .reply-btn,
+  .delete-btn,
+  .edit-btn {
+    display: flex;
+    align-items: center;
+  }
   .comment {
     padding-top: 1.5rem;
     display: grid;
@@ -347,27 +343,29 @@ button {
       "score heading btns"
       "score content content";
   }
+
   .comment-votes {
-    margin-top: unset;
-    grid-area: score;
     display: flex;
     flex-direction: column;
     width: 60%;
+    margin-bottom: 1em;
+    font-weight: 500;
+    height: 95px;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: var(--verylightgray);
   }
-  /* .plus-btn,
-  .minus-btn {
-    border-radius: unset;
-    justify-content: center;
-    padding: 0.5rem 1rem;
+  .comment-votes button {
+    background-color: transparent;
+    cursor: pointer;
+    border-radius: 0;
+    height: 100%;
   }
-  .plus-btn {
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+
+  .comment-votes button:hover {
+    background-color: hsl(238, 40%, 52%);
   }
-  .minus-btn {
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-  } */
+
   .editing {
     grid-area: content;
   }

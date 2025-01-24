@@ -5,6 +5,7 @@ import "./index.css";
 
 const InteractiveComment = () => {
   const currentUser = data.currentUser;
+
   return (
     <>
       <div className="App">
