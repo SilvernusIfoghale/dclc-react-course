@@ -20,6 +20,7 @@ const Home = () => {
         <ul className="flex gap-5   flex-wrap ">
           <Link to="/product">Product</Link>
           <Link to="/calculator">Calculator</Link>
+          <Link to="/comment"> Comments</Link>
           <li></li>
           <Link to="/form">Form</Link>
           <Link to="/counter">Redux-Counter</Link>
