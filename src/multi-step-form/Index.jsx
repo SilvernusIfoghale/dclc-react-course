@@ -3,7 +3,9 @@ import React from "react";
 const Index = () => {
   return (
     <>
-      <div>Multi-step-form </div>
+      <div>
+        <p>Multi-step form</p>{" "}
+      </div>
     </>
   );
 };
