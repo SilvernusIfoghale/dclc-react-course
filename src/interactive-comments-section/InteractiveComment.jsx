@@ -1,7 +1,6 @@
 import React from "react";
 import Comments from "./component/Comments";
 import data from "./data.json";
-import "./index.css";
 
 const InteractiveComment = () => {
   const currentUser = data.currentUser;
