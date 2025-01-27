@@ -38,18 +38,22 @@ export default function Reply(props) {
 
   return (
     <div>
-      <div className="comment">
+      <div className="comment ">
         <div className="comment-heading">
           <img
-            className="user-avatar"
+            className="w-8 mr-[0.9rem]"
             src={props.user.image.png}
             alt="user avatar"
           />
-          <p className="username">{props.user.username}</p>
+          <p className="font-bold text-comment_Color-Dark_blue mr-[0.9rem]">
+            {props.user.username}
+          </p>
           {props.user.username === props.currentUser.username && (
-            <p className="tag">you</p>
+            <p className="mr-[0.9rem] bg-comment_Color-Moderate_blue text-white text-xs font-bold py-[0.15rem] px-2 rounded-[4px]">
+              you
+            </p>
           )}
-          <p className="date">{props.createdAt}</p>
+          <p className="mr-[0.9rem]">{props.createdAt}</p>
         </div>
         <div className="editing">
           {!isEditing && <p className="comment-content">{props.content}</p>}
@@ -67,7 +71,7 @@ export default function Reply(props) {
         </div>
         <div className="comment-votes">
           <button
-            className={`plus-btn`}
+            className={`plus-btn font-bold text-comment_Color-Moderate_blue text-[1rem] border-none bg-white py-2 px-4 rounded-[10px] hover:opacity-70`}
             disabled={disableUpvote}
             onClick={handleScoreChange}
           >
@@ -80,10 +84,15 @@ export default function Reply(props) {
               </svg>
             </span>
           </button>
-          <p className="comment-votes_total">{score}</p>
+          <p
+            className="font-bold text-comment_Color-Moderate_blue bg
+          -comment_Color-Very_light_gray h-10 flex items-center justify-center"
+          >
+            {score}
+          </p>
           <button
             disabled={disableDownvote}
-            className={`minus-btn`}
+            className={`minus-btn font-bold text-comment_Color-Moderate_blue text-[1rem] border-none bg-white py-2 px-4 rounded-[10px] hover:opacity-70`}
             onClick={handleScoreChange}
           >
             <span className={`minus-btn minus-icon`}>
@@ -100,7 +109,7 @@ export default function Reply(props) {
           {isCurrentUser ? (
             <div className="toggled-btns">
               <button
-                className="delete-btn"
+                className="delete-btn font-bold text-comment_Color-Moderate_blue text-[1rem] border-none bg-white py-2 px-4 rounded-[10px] hover:opacity-70"
                 onClick={() => {
                   setShowDeleteModal(true);
                 }}
@@ -120,7 +129,7 @@ export default function Reply(props) {
                 Delete
               </button>
               <button
-                className="edit-btn"
+                className="edit-btn font-bold text-comment_Color-Moderate_blue text-[1rem] border-none bg-white py-2 px-4 rounded-[10px] hover:opacity-70"
                 onClick={() => {
                   props.setActiveComment({ id: props.id, type: "editing" });
                 }}
@@ -142,7 +151,7 @@ export default function Reply(props) {
             </div>
           ) : (
             <button
-              className="reply-btn"
+              className="reply-btn font-bold text-comment_Color-Moderate_blue text-[1rem] border-none bg-white py-2 px-4 rounded-[10px] hover:opacity-70"
               onClick={() =>
                 props.setActiveComment({ id: props.id, type: "replying" })
               }
@@ -184,7 +193,7 @@ export default function Reply(props) {
             </p>
             <div className="delete-modal_btns">
               <button
-                className="delete-modal_btn no"
+                className="delete-modal_btn no font-bold text-comment_Color-Moderate_blue text-[1rem] border-none bg-white py-2 px-4 rounded-[10px] hover:opacity-70"
                 onClick={() => {
                   setShowDeleteModal(false);
                 }}
@@ -192,7 +201,7 @@ export default function Reply(props) {
                 No, cancel
               </button>
               <button
-                className="delete-modal_btn yes"
+                className="delete-modal_btn yes font-bold text-comment_Color-Moderate_blue text-[1rem] border-none bg-white py-2 px-4 rounded-[10px] hover:opacity-70"
                 onClick={() => {
                   props.deleteReply(props.id);
                 }}

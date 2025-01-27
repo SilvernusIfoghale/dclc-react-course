@@ -35,7 +35,11 @@ export default function NewComment({
           alt={currentUser.username}
         />
       )}
-      <button className="submit" type="submit">
+
+      <button
+        className="submit font-bold text-comment_Color-Moderate_blue text-[1rem] border-none bg-white py-2 px-4 rounded-[10px] hover:opacity-70"
+        type="submit"
+      >
         {buttonText}
       </button>
     </form>
