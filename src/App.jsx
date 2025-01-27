@@ -21,6 +21,7 @@ import FormReactHookForm from "./component/FormReactHookForm";
 import Counter from "./redux/features/counter/Counter";
 import PostsList from "./redux/features/post/PostsList";
 import Index from "./ecommerce-product-page/Index";
+import IndexForm from "./multi-step-form/IndexForm";
 import Calculator from "./component/calculator-app/Calculator";
 import InteractiveComment from "./interactive-comments-section/InteractiveComment";
 
@@ -56,6 +57,7 @@ const App = () => {
 
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/multi-form" element={<IndexForm />} />
         <Route path="/product" element={<Index />} />
         <Route path="/calculator" element={<Calculator />} />
         <Route path="/comment" element={<InteractiveComment />} />
