@@ -1,5 +1,3 @@
-import { current } from "@reduxjs/toolkit";
-
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
@@ -8,7 +6,6 @@ export default {
       colors: {
         transparent: "transparent",
         current: "currentColor",
-        //theme('colors.main_background')
         theme_1: {
           main_background: "#e6e6e6",
           toggle_keys_background: "#d1cccc",
@@ -59,6 +56,20 @@ export default {
           Very_light_gray: "#f5f6fa",
           White: "#ffffff",
         },
+        multiForm: {
+          Magnolia: "#f0f6ff",
+          Lightgray: "#d6d9e6",
+          Coolgray: "#9699ab",
+          Alabaster: "#fafbff",
+          Strawberryred: "#ed3548",
+          Lightblue: "#bfe2fd",
+          Pastelblue: "#adbeff",
+          Purplishblue: "#473dff",
+          Marineblue: "#02295a",
+        },
+      },
+      fontFamily: {
+        ubuntu: ["Ubuntu", "serif"],
       },
     },
   },
