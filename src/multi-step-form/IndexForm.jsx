@@ -3,7 +3,7 @@ import "./multiForm.css";
 import Step from "./Step";
 import PersonalForm from "./PersonalForm";
 const IndexForm = () => {
-  const [step, setStep] = useState(3);
+  const [step, setStep] = useState(5);
   return (
     <>
       <div className="font-ubuntu bg-multiForm-Lightblue w-full min-h-[100vh] sm:flex justify-center items-center ">

@@ -3,6 +3,8 @@ import { Field, Form, Formik, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import SelectPlan from "./SelectPlan";
 import Addons from "./Addons";
+import FinishingUp from "./FinishingUp";
+import ThankYou from "./ThankYou";
 
 const PersonalForm = ({ step }) => {
   const phoneRegExp =
@@ -122,8 +124,10 @@ const PersonalForm = ({ step }) => {
             <SelectPlan step={step} />
           ) : step === 3 ? (
             <Addons />
+          ) : step == 4 ? (
+            <FinishingUp />
           ) : (
-            step == 4
+            step > 4 && <ThankYou />
           )}
         </div>
       </div>
