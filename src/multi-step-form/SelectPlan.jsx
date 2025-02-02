@@ -1,8 +1,48 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { InfoContext } from "./context/InfoContext";
 
-const SelectPlan = ({ step }) => {
-  const [plan, setPlan] = useState("");
-  const [planType, setPlanType] = useState(1);
+const SelectPlan = ({ step, setStep }) => {
+  const { plan, setPlan } = useContext(InfoContext);
+  const { planType, setPlanType } = useContext(InfoContext);
+  const [validate, setValidate] = useState(false);
+  const { price, setPrice } = useContext(InfoContext);
+
+  useEffect(() => {
+    priceValue();
+    setValidate(false);
+  }, [plan]);
+  useEffect(() => {
+    priceValue();
+  }, [plan, planType]);
+
+  const handleNext = () => {
+    if (!plan) {
+      setValidate(true);
+    } else {
+      setValidate(false);
+      setStep(step + 1);
+    }
+  };
+  const priceValue = () => {
+    if (planType == 1) {
+      if (plan == "Arcade") {
+        setPrice(90);
+      } else if (plan == "Pro") {
+        setPrice(150);
+      } else {
+        setPrice(120);
+      }
+    } else {
+      if (plan == "Arcade") {
+        setPrice(9);
+      } else if (plan == "Pro") {
+        setPrice(15);
+      } else {
+        setPrice(12);
+      }
+    }
+  };
+
   return (
     <>
       <div className="mt-3 sm:mt-7 ml-3 sm:ml-0">
@@ -80,7 +120,7 @@ const SelectPlan = ({ step }) => {
                 Advanced
               </h2>
               {planType == 0 ? (
-                <p className="text-multiForm-Coolgray text-sm">$9/mo</p>
+                <p className="text-multiForm-Coolgray text-sm">$12/mo</p>
               ) : (
                 <>
                   <p className="text-multiForm-Coolgray text-sm">$120/yr</p>
@@ -122,7 +162,7 @@ const SelectPlan = ({ step }) => {
                 Pro
               </h2>
               {planType == 0 ? (
-                <p className="text-multiForm-Coolgray text-sm">$9/mo</p>
+                <p className="text-multiForm-Coolgray text-sm">$15/mo</p>
               ) : (
                 <>
                   <p className="text-multiForm-Coolgray text-sm">$150/yr</p>
@@ -134,6 +174,12 @@ const SelectPlan = ({ step }) => {
             </div>
           </div>
         </div>
+        {validate && (
+          <p className="text-red-500 text-xs mt-[-25px] h-3 ">
+            Select a plan option*
+          </p>
+        )}
+
         <div className="mt-5 text-sm font-bold">
           <div className="flex justify-center items-center gap-1  bg-multiForm-Magnolia">
             <h4 className="text-multiForm-Marineblue">Monthly</h4>
@@ -142,6 +188,7 @@ const SelectPlan = ({ step }) => {
                 type="range"
                 name="range"
                 id="range"
+                value={planType}
                 onChange={(e) => setPlanType(e.target.value)}
                 min="0"
                 max="1"
@@ -152,9 +199,11 @@ const SelectPlan = ({ step }) => {
             <h4 className="text-multiForm-Coolgray">Yearly</h4>
           </div>
         </div>
+
         <div>
           <div className="bg-white left-0 right-0 h-24 absolute bottom-0 sm:static sm:bg-transparent ">
             <button
+              onClick={() => setStep(step - 1)}
               type="submit"
               className=" absolute  bottom-5 left-10 sm:left-[17rem] lg:left-72 mt-4 px-4 py-3 rounded-md flex place-self-end "
             >
@@ -163,6 +212,7 @@ const SelectPlan = ({ step }) => {
               </p>
             </button>
             <button
+              onClick={handleNext}
               type="submit"
               className="bg-multiForm-Marineblue absolute  bottom-5 right-10 sm:right-16 mt-4 px-4 py-3 rounded-md flex place-self-end hover:bg-multiForm-Purplishblue"
             >

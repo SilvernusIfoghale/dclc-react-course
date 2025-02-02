@@ -1,15 +1,29 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { FaCheck } from "react-icons/fa";
+import { InfoContext } from "./context/InfoContext";
 
 const Addons = () => {
-  const [online, setOnline] = useState(false);
-  const [larger, setLarger] = useState(false);
-  const [custom, setCustom] = useState(false);
+  const { step, setStep } = useContext(InfoContext);
+  const { planType } = useContext(InfoContext);
 
-  //   const handleChecked = (name, checked) => {
-  //     console.log(name, checked);
-  //     setCheckValue({ ...checkValue, [name]: !checked });
-  //   };
+  const { online, setOnline } = useContext(InfoContext);
+  const { larger, setLarger } = useContext(InfoContext);
+  const { custom, setCustom } = useContext(InfoContext);
+  const [warning, setWarning] = useState(false);
+
+  const handleNext = () => {
+    if (online || larger || custom) {
+      setWarning(false);
+      setStep(step + 1);
+    } else {
+      setWarning(true);
+    }
+  };
+
+  useEffect(() => {
+    setWarning(false);
+  }, [online, custom, larger]);
+
   return (
     <>
       <div className="mt-7">
@@ -49,9 +63,15 @@ const Addons = () => {
               </div>
             </div>
             <div>
-              <p className="text-xs sm:text-sm text-multiForm-Purplishblue">
-                +$10/yr
-              </p>
+              {planType == 1 ? (
+                <p className="text-xs sm:text-sm text-multiForm-Purplishblue">
+                  +$10/yr
+                </p>
+              ) : (
+                <p className="text-xs sm:text-sm text-multiForm-Purplishblue">
+                  +$1/mo
+                </p>
+              )}
             </div>
           </div>
           <div
@@ -89,9 +109,15 @@ const Addons = () => {
               </div>
             </div>
             <div>
-              <p className="text-xs sm:text-sm text-multiForm-Purplishblue">
-                +$20/yr
-              </p>
+              {planType == 1 ? (
+                <p className="text-xs sm:text-sm text-multiForm-Purplishblue">
+                  +$20/yr
+                </p>
+              ) : (
+                <p className="text-xs sm:text-sm text-multiForm-Purplishblue">
+                  +$2/mo
+                </p>
+              )}
             </div>
           </div>
           <div
@@ -129,15 +155,26 @@ const Addons = () => {
               </div>
             </div>
             <div>
-              <p className="text-sm text-multiForm-Purplishblue text-xs sm:text-sm">
-                +$20/yr
-              </p>
+              {planType == 1 ? (
+                <p className=" text-multiForm-Purplishblue text-xs sm:text-sm">
+                  +$20/yr
+                </p>
+              ) : (
+                <p className=" text-multiForm-Purplishblue text-xs sm:text-sm">
+                  +$2/mo
+                </p>
+              )}
             </div>
           </div>
         </div>
-
+        {warning && (
+          <p className="text-red-400 text-xs mt-[-10px] ">
+            Pick at least one Add-ons*
+          </p>
+        )}
         <div className="bg-white left-0 right-0 h-24 absolute bottom-0 sm:static sm:bg-transparent ">
           <button
+            onClick={() => setStep(step - 1)}
             type="submit"
             className=" absolute  bottom-5 left-10 sm:left-[17rem] lg:left-72 mt-4 px-4 py-3 rounded-md flex place-self-end "
           >
@@ -146,6 +183,7 @@ const Addons = () => {
             </p>
           </button>
           <button
+            onClick={handleNext}
             type="submit"
             className="bg-multiForm-Marineblue absolute  bottom-5 right-10 sm:right-16 mt-4 px-4 py-3 rounded-md flex place-self-end hover:bg-multiForm-Purplishblue"
           >

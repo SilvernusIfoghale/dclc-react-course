@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
+import { InfoContext } from "./context/InfoContext";
 
-const Step = ({ step }) => {
+const Step = () => {
+  const { step, setStep } = useContext(InfoContext);
   return (
     <>
       <div className="bg-image w-full h-[150px] sm:h-full sm:min-w-[200px] sm:w-[30%] sm:rounded-lg sm:pl-8 sm:pt-8 text-white text-sm flex gap-5 justify-center sm:block">

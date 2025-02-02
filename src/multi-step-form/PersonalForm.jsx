@@ -1,12 +1,15 @@
-import React, { useState } from "react";
-import { Field, Form, Formik, ErrorMessage } from "formik";
+import React, { useContext, useState } from "react";
+import { Field, Form, Formik, ErrorMessage, setIn } from "formik";
 import * as Yup from "yup";
 import SelectPlan from "./SelectPlan";
 import Addons from "./Addons";
 import FinishingUp from "./FinishingUp";
 import ThankYou from "./ThankYou";
+import { InfoContext } from "./context/InfoContext";
 
-const PersonalForm = ({ step }) => {
+const PersonalForm = () => {
+  const { step, setStep, info, setInfo } = useContext(InfoContext);
+
   const phoneRegExp =
     /^(\+?\d{0,4})?\s?-?\s?(\(?\d{3}\)?)\s?-?\s?(\(?\d{3}\)?)\s?-?\s?(\(?\d{4}\)?)?$/;
   return (
@@ -38,13 +41,14 @@ const PersonalForm = ({ step }) => {
           {/* form */}
           {step === 1 ? (
             <Formik
-              initialValues={{
-                name: "",
-                email: "",
-                phoneNumber: "",
-              }}
+              initialValues={info}
               onSubmit={(values, { setSubmitting }) => {
-                alert(JSON.stringify(values, null, 2));
+                setInfo({
+                  name: values.name,
+                  email: values.email,
+                  phoneNumber: values.phoneNumber,
+                });
+                setStep(step + 1);
                 setSubmitting(false);
               }}
               validationSchema={Yup.object({
@@ -121,7 +125,7 @@ const PersonalForm = ({ step }) => {
             </Formik>
           ) : step === 2 ? (
             // plan
-            <SelectPlan step={step} />
+            <SelectPlan step={step} setStep={setStep} />
           ) : step === 3 ? (
             <Addons />
           ) : step == 4 ? (
