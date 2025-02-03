@@ -53,7 +53,7 @@ const SelectPlan = ({ step, setStep }) => {
               plan === "Arcade"
                 ? "bg-blue-100 border-multiForm-Purplishblue"
                 : "border-multiForm-Lightgray bg-transparent"
-            } border-[1.5px] rounded-md p-3 sm:w-24 hover:cursor-pointer hover:border-multiForm-Marineblue w-full flex gap-4 items-center sm:block h-20 sm:h-[9.4rem]`}
+            } border-[1.5px] rounded-md p-3 sm:w-24 hover:cursor-pointer hover:border-multiForm-Marineblue w-full flex gap-4 items-center sm:block h-20 sm:h-[9.4rem] xl:w-36`}
             onClick={() => setPlan("Arcade")}
           >
             <div>
@@ -95,7 +95,7 @@ const SelectPlan = ({ step, setStep }) => {
               plan === "Advanced"
                 ? "bg-blue-100 border-multiForm-Purplishblue"
                 : "border-multiForm-Lightgray bg-transparent"
-            } border-[1.5px] rounded-md p-3 sm:w-24 hover:cursor-pointer hover:border-multiForm-Marineblue w-full flex gap-4 items-center sm:block my-3 sm:my-0 h-20 sm:h-[9.4rem]`}
+            } border-[1.5px] rounded-md p-3 sm:w-24 hover:cursor-pointer hover:border-multiForm-Marineblue w-full flex gap-4 items-center sm:block my-3 sm:my-0 h-20 sm:h-[9.4rem] xl:w-36`}
             onClick={() => setPlan("Advanced")}
           >
             <div>
@@ -137,7 +137,7 @@ const SelectPlan = ({ step, setStep }) => {
               plan === "Pro"
                 ? "bg-blue-100 border-multiForm-Purplishblue"
                 : "border-multiForm-Lightgray bg-transparent"
-            } border-[1.5px] rounded-md p-3 sm:w-24 hover:cursor-pointer hover:border-multiForm-Marineblue w-full flex gap-4 items-center sm:block h-20 sm:h-[9.4rem]`}
+            } border-[1.5px] rounded-md p-3 sm:w-24 hover:cursor-pointer hover:border-multiForm-Marineblue w-full flex gap-4 items-center sm:block h-20 sm:h-[9.4rem] xl:w-36`}
             onClick={() => setPlan("Pro")}
           >
             <div>
@@ -205,7 +205,7 @@ const SelectPlan = ({ step, setStep }) => {
             <button
               onClick={() => setStep(step - 1)}
               type="submit"
-              className=" absolute  bottom-5 left-10 sm:left-[17rem] lg:left-72 mt-4 px-4 py-3 rounded-md flex place-self-end "
+              className=" absolute  bottom-5 left-10 sm:left-[17rem] lg:left-72 xl:left-96 mt-4 px-4 py-3 rounded-md flex place-self-end "
             >
               <p className="text-xs font-bold text-multiForm-Coolgray hover:cursor-pointer hover:scale-110 duration-700 hover:text-multiForm-Marineblue">
                 Go Back

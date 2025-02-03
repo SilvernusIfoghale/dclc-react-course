@@ -115,6 +115,7 @@ const FinishingUp = () => {
             </p>
           </button>
           <button
+            onClick={() => setStep(step + 1)}
             type="submit"
             className=" hover:bg-multiForm-Marineblue absolute  bottom-5 right-10 sm:right-16 mt-4 px-4 py-3 rounded-md flex place-self-end bg-multiForm-Purplishblue"
           >

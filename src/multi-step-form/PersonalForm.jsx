@@ -14,7 +14,7 @@ const PersonalForm = () => {
     /^(\+?\d{0,4})?\s?-?\s?(\(?\d{3}\)?)\s?-?\s?(\(?\d{3}\)?)\s?-?\s?(\(?\d{4}\)?)?$/;
   return (
     <>
-      <div className="w-[90%] sm:w-[60%] md:w-[60%] pl-5 pt-5 pr-10 pb-5 sm:pb-1 bg-multiForm-Alabaster sm:bg-white rounded-lg mt-[-50px] sm:mt-0 flex flex-col place-self-center sm:place-self-auto sm:block">
+      <div className="w-[90%] sm:w-[60%] md:w-[60%] pl-5 pt-5 pr-10 pb-5 sm:pb-1 bg-multiForm-Alabaster sm:bg-white rounded-lg mt-[-50px] sm:mt-0 flex flex-col place-self-center mx-auto  sm:place-self-auto sm:block">
         <h1 className="text-[1.7rem] font-bold text-multiForm-Marineblue">
           {step === 1
             ? " Personal info"
