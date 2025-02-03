@@ -61,18 +61,18 @@ const App = () => {
         <Route path="/product" element={<Index />} />
         <Route path="/calculator" element={<Calculator />} />
         <Route path="/comment" element={<InteractiveComment />} />
-        <Route path="/books" element={<BookLayout />}>
-          <Route index element={<Books />} />
-          <Route path=":id" element={<Books />} />
-          <Route path="newbook" element={<NewBook />} />
-        </Route>
-        <Route path="/book" element={<BookList />} />
-        <Route path="/form" element={<Form />} />
-        <Route path="/form-yup" element={<FormYup />} />
-        <Route path="/form-formik-yup" element={<FormFormikYup />} />
-        <Route path="/react-hook-form" element={<FormReactHookForm />} />
-        <Route path="/counter" element={<Counter />} />
-        <Route path="/post" element={<PostsList />} />
+        {/* <Route path="/books" element={<BookLayout />}> */}
+        {/* <Route index element={<Books />} /> */}
+        {/* <Route path=":id" element={<Books />} /> */}
+        {/* <Route path="newbook" element={<NewBook />} /> */}
+        {/* </Route> */}
+        {/* <Route path="/book" element={<BookList />} /> */}
+        {/* <Route path="/form" element={<Form />} /> */}
+        {/* <Route path="/form-yup" element={<FormYup />} /> */}
+        {/* <Route path="/form-formik-yup" element={<FormFormikYup />} /> */}
+        {/* <Route path="/react-hook-form" element={<FormReactHookForm />} /> */}
+        {/* <Route path="/counter" element={<Counter />} /> */}
+        {/* <Route path="/post" element={<PostsList />} /> */}
         <Route path="*" element={<NotFound />} />
       </Routes>
     </>

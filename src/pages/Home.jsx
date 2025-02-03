@@ -22,14 +22,14 @@ const Home = () => {
           <Link to="/multi-form">Multi-Form</Link>
           <Link to="/calculator">Calculator</Link>
           <Link to="/comment"> Comments</Link>
-          <li></li>
-          <Link to="/form">Form</Link>
-          <Link to="/counter">Redux-Counter</Link>
-          <Link to="/form-yup">FormYup</Link>
-          <Link to="/form-formik-yup">FormFormikYup</Link>
-          <Link to="/react-hook-form">ReactHookForm</Link>
-          <Link to="/post">Redux-Posts</Link>
-
+          {/* <li></li> */}
+          {/* <Link to="/form">Form</Link> */}
+          {/* <Link to="/counter">Redux-Counter</Link> */}
+          {/* <Link to="/form-yup">FormYup</Link> */}
+          {/* <Link to="/form-formik-yup">FormFormikYup</Link> */}
+          {/* <Link to="/react-hook-form">ReactHookForm</Link> */}
+          {/* <Link to="/post">Redux-Posts</Link> */}
+          {/* 
           <li>
             <NavLink
               state="Hi, from state"
@@ -40,15 +40,15 @@ const Home = () => {
             >
               Book List
             </NavLink>
-          </li>
-          <li>
+          </li> */}
+          {/* <li>
             <NavLink to="/books" style={navLinkStyles}>
               Books
             </NavLink>
-          </li>
+          </li> */}
         </ul>
       </nav>
-      <div className="m-5 border-2 p-5 text-center w-96">
+      {/* <div className="m-5 border-2 p-5 text-center w-96">
         <FetchUsers />
       </div>
       <div className="m-5 border-2 p-5 text-center w-96">
@@ -73,7 +73,7 @@ const Home = () => {
         </button>
       </div>
       <div className="container flex mt-5">
-        {/* <h1 className="text-3xl font-bold ">Hello world</h1> */}
+        
         {location.state}
         <Card
           color="green"
@@ -93,7 +93,7 @@ const Home = () => {
         >
           <p color="blue"> Include some items in this body section</p>
         </Card>
-      </div>
+      </div> */}
     </>
   );
 };
